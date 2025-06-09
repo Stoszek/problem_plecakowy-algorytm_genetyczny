@@ -155,35 +155,6 @@ class Population:
             self.newPopulation()
             #print(self)
 
-    def plot_best_fitness_per_generation(self):
-        plt.plot(self.best_fitness_history)
-        plt.title("Best fitness per generation")
-        plt.xlabel("Generation")
-        plt.ylabel("Fitness")
-        plt.grid(True)
-        plt.show()
-
-    def table_average_fitness_per_generation(self):
-        print(f"Tabela średniej wartości fitnessu, dla ziarna {self.knapsack.seed}, przy {self.numberOfGeneretions} generacjach, metoda selekcji to {self.selection_method}, metoda krzyżowania to {self.crossover_mode}:")
-        for i, j in enumerate(self.avg_fitness_history):
-            print(i, j)
-
-    def table_best_fitness_per_generation(self):
-        print(f"Tabela najlepszej wartości fitnessu, dla ziarna {self.knapsack.seed}, przy {self.numberOfGeneretions} generacjach, metoda selekcji to {self.selection_method}, metoda krzyżowania to {self.crossover_mode}::")
-        for i, j in enumerate(self.best_fitness_history):
-            print(i, j)
-
-
-    def plot_average_fitness_per_generation(self):
-        plt.plot(self.best_fitness_history, label='Max Fitness')
-        plt.plot(self.avg_fitness_history, label='Avg Fitness')
-        plt.title("Fitness Evolution")
-        plt.xlabel("Generation")
-        plt.ylabel("Fitness")
-        plt.legend()
-        plt.grid(True)
-        plt.show()
-
     def __str__(self):
         result = "-" * 20 + "\n"
         for genotype, sum in zip(self.population, self.listOfSums):
@@ -273,10 +244,6 @@ def full_experiment(selection_methods, crossover_modes, mutation_rate, knapsack,
     plt.grid(True)
     plt.tight_layout()
     plt.show()
-    pop.plot_average_fitness_per_generation()
-    pop.table_average_fitness_per_generation()
-    pop.plot_best_fitness_per_generation()
-    pop.table_best_fitness_per_generation()
 
 
 
